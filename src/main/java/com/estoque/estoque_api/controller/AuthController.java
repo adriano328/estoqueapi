@@ -1,5 +1,7 @@
-package com.estoque.estoque_api.controller.dto;
+package com.estoque.estoque_api.controller;
 
+import com.estoque.estoque_api.dto.LoginRequest;
+import com.estoque.estoque_api.dto.TokenResponse;
 import com.estoque.estoque_api.service.TokenService;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.AuthenticationException;

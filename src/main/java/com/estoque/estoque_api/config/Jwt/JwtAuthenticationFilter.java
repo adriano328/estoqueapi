@@ -1,4 +1,4 @@
-package com.estoque.estoque_api.config.Jwt;
+package com.estoque.estoque_api.config.jwt;
 
 import com.estoque.estoque_api.service.TokenService;
 import jakarta.servlet.*;

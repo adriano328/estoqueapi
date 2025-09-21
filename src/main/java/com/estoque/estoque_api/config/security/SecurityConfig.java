@@ -1,6 +1,6 @@
 package com.estoque.estoque_api.config.security;
 
-import com.estoque.estoque_api.config.Jwt.JwtAuthenticationFilter;
+import com.estoque.estoque_api.config.jwt.JwtAuthenticationFilter;
 import com.estoque.estoque_api.service.TokenService;
 import org.springframework.context.annotation.*;
 import org.springframework.security.authentication.AuthenticationManager;

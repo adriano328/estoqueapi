@@ -1,4 +1,4 @@
-package com.estoque.estoque_api.config.BootstrapData;
+package com.estoque.estoque_api.config.bootstrapdata;
 
 import com.estoque.estoque_api.model.Role;
 import com.estoque.estoque_api.model.UserAccount;
