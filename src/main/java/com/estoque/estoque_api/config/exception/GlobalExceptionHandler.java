@@ -1,6 +1,6 @@
 package com.estoque.estoque_api.config.exception;
 
-import com.estoque.estoque_api.dto.ErrorResponse;
+import com.estoque.estoque_api.dto.exception.ErrorResponse;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

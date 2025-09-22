@@ -1,6 +1,6 @@
 package com.estoque.estoque_api.controller;
 
-import com.estoque.estoque_api.dto.DepositoDto;
+import com.estoque.estoque_api.dto.deposito.DepositoDto;
 import com.estoque.estoque_api.model.Deposito;
 import com.estoque.estoque_api.service.DepositoService;
 import jakarta.validation.Valid;

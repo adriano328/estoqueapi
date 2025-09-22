@@ -1,4 +1,4 @@
-package com.estoque.estoque_api.dto;
+package com.estoque.estoque_api.dto.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

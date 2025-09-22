@@ -6,9 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity @Table(name = "deposito")
+@Entity @Table(name = "categoria")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
-public class Deposito {
+public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
