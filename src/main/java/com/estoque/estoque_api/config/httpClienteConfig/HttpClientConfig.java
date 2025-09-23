@@ -12,12 +12,25 @@ import java.time.Duration;
 
 @Configuration
 public class HttpClientConfig {
+
     @Bean
     WebClient openCnpjClient(WebClient.Builder builder) {
         HttpClient httpClient = HttpClient.create()
                 .responseTimeout(Duration.ofSeconds(5));
         return builder
                 .baseUrl("https://api.opencnpj.org")
+                .clientConnector(new ReactorClientHttpConnector(httpClient))
+                .defaultHeader(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE)
+                .build();
+    }
+
+    @Bean
+    WebClient viaCepClient(WebClient.Builder builder) {
+        HttpClient httpClient = HttpClient.create()
+                .responseTimeout(Duration.ofSeconds(5));
+
+        return builder
+                .baseUrl("https://viacep.com.br")
                 .clientConnector(new ReactorClientHttpConnector(httpClient))
                 .defaultHeader(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE)
                 .build();
