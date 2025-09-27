@@ -11,7 +11,7 @@ public class OpenAPIConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("API de Estoque")
+                        .title("API Gestão3 de Estoque")
                         .version("1.0.0")
                         .description("Documentação da API de Estoque (Spring Boot 3.5.6 + SpringDoc)"));
     }

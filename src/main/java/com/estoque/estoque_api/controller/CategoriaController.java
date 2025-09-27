@@ -22,7 +22,7 @@ public class CategoriaController {
     private final CategoriaService categoriaService;
     private final ModelMapper modelMapper;
 
-    @Operation(summary = "Cria nova categoria", description = "Cadastra uma nova categoria para produtos")
+    @Operation(summary = "Cria nova categoria", description = "Cadastra uma nova categoria para produtos.")
     @PostMapping
     ResponseEntity<CategoriaDto> salvarCategoria(@Valid @RequestBody CategoriaDto categoriaDto) {
         com.estoque.estoque_api.model.Categoria categoria = modelMapper.map(categoriaDto, com.estoque.estoque_api.model.Categoria.class);
@@ -30,13 +30,13 @@ public class CategoriaController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @Operation(summary = "Exclui categoria", description = "Exclui categoria de produto")
+    @Operation(summary = "Exclui categoria", description = "Exclui categoria de produto.")
     @DeleteMapping("/excluir")
     public void deletaCategoria(@RequestParam Long id) {
         categoriaService.ExcluirCategoria(id);
     }
 
-    @Operation(summary = "Busca categoria", description = "Busca categoria de produto")
+    @Operation(summary = "Busca categoria", description = "Busca categoria de produto.")
     @GetMapping("busca-categoria")
     ResponseEntity<CategoriaDto> buscaPorCategoria(@RequestParam Long id) {
         var categoria = categoriaService.buscarPorId(id);
@@ -44,7 +44,7 @@ public class CategoriaController {
         return ResponseEntity.ok(categoriaDto);
     }
 
-    @Operation(summary = "Atualiza categoria", description = "Atualiza categoria de produto")
+    @Operation(summary = "Atualiza categoria", description = "Atualiza categoria de produto.")
     @PutMapping()
     ResponseEntity<CategoriaDto> AtualizaCategoria(@Valid @RequestBody CategoriaAtualizaDto categoriaDto) {
         Categoria categoria = modelMapper.map(categoriaDto, Categoria.class);
