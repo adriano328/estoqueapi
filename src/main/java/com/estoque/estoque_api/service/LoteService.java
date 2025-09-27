@@ -35,8 +35,7 @@ public class LoteService {
     }
 
     public void AtualizarLote(Long id, Lote loteEnviado) {
-        Lote lote = loteRepository.findById(id)
-                .orElseThrow(() -> new BusinessException("Lote não localizado."));
+        Lote lote = BuscarPorLote(id);
         Deposito deposito = depositoRepository.findById(loteEnviado.getDeposito().getId())
                 .orElseThrow(() -> new BusinessException("Deposito não localizado."));
         Produto produto = produtoRepository.findById(loteEnviado.getProduto().getId())
