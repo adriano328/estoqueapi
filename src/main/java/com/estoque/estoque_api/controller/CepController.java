@@ -2,6 +2,9 @@ package com.estoque.estoque_api.controller;
 
 import com.estoque.estoque_api.dto.cep.CepDto;
 import com.estoque.estoque_api.service.CepService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +21,7 @@ public class CepController {
     private final CepService cepservice;
     public CepController(CepService service) { this.cepservice = service; }
 
+    @Operation(summary = "Consulta endereço por CEP", description = "Consulta dados de endereço por CEP")
     @GetMapping("/{cep}")
     public ResponseEntity<?> get(@PathVariable String cep) {
         try {

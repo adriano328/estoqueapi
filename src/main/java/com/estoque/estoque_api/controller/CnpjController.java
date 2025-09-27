@@ -1,6 +1,9 @@
 package com.estoque.estoque_api.controller;
 
 import com.estoque.estoque_api.service.CnpjService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +22,7 @@ public class CnpjController {
         this.service = service;
     }
 
+    @Operation(summary = "Consulta dados por CNPJ", description = "Consulta dados do fornecedor por CNPJ")
     @GetMapping("/{cnpj}")
     public ResponseEntity<?> get(@PathVariable String cnpj) {
         try {

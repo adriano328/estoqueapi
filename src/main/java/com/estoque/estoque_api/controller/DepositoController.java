@@ -3,6 +3,9 @@ package com.estoque.estoque_api.controller;
 import com.estoque.estoque_api.dto.deposito.DepositoDto;
 import com.estoque.estoque_api.model.Deposito;
 import com.estoque.estoque_api.service.DepositoService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -21,6 +24,7 @@ public class DepositoController {
     private final DepositoService depositoService;
     private final ModelMapper modelMapper;
 
+    @Operation(summary = "Cadastra novo deposito", description = "Cadastra novo deposito")
     @PostMapping
     ResponseEntity<DepositoDto> salvarDeposito(@Valid @RequestBody DepositoDto depositoDto) {
         Deposito deposito = modelMapper.map(depositoDto, Deposito.class);

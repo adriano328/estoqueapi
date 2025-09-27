@@ -3,6 +3,9 @@ package com.estoque.estoque_api.controller;
 import com.estoque.estoque_api.dto.produto.ProdutoDto;
 import com.estoque.estoque_api.model.Produto;
 import com.estoque.estoque_api.service.ProdutoService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -19,8 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProdutoController {
 
     private final ProdutoService produtoService;
-    private final ModelMapper modelMapper;
 
+    @Operation(summary = "Cadastra novo produto", description = "Cadastra novo produto")
     @PostMapping
     ResponseEntity<Produto> salvarProduto(@Valid @RequestBody ProdutoDto produtoDto) {
         Produto salvo = produtoService.salvar(produtoDto);

@@ -19,7 +19,7 @@ public class UserAccount implements UserDetails {
     private String username;
 
     @Column(nullable=false)
-    private String password; // armazenar BCrypt
+    private String password;
 
     @Column(nullable=false)
     private boolean enabled = true;
