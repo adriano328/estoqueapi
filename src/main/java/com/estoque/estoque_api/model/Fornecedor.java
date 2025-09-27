@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity @Table(name = "fornecedor")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
@@ -17,6 +18,9 @@ public class Fornecedor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "cnpj")
+    private String cnpj;
 
     @Column(name = "razaosocial")
     private String razaoSocial;
@@ -41,4 +45,7 @@ public class Fornecedor {
     @OneToOne(optional = false, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "endereco_id", unique = true, nullable = false)
     private Endereco endereco;
+
+    @OneToMany(mappedBy = "fornecedor")
+    private List<Produto> produtos;
 }

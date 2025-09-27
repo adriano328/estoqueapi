@@ -1,5 +1,6 @@
 package com.estoque.estoque_api.service;
 
+import com.estoque.estoque_api.config.exception.BusinessException;
 import com.estoque.estoque_api.dto.produto.ProdutoDto;
 import com.estoque.estoque_api.model.Categoria;
 import com.estoque.estoque_api.model.Produto;
@@ -27,5 +28,28 @@ public class ProdutoService {
        produto.setUnidadeMedida(produtoDto.getUnidadeMedida());
        produto.setCategoria(categoria);
        return produtoRepository.save(produto);
+    }
+
+    public Produto buscarProdutoPorId(Long id) {
+        return produtoRepository.findById(id)
+                .orElseThrow(() -> new BusinessException("Produto não localizado."));
+    }
+
+    public void ExcluirProduto(Long id) {
+        Produto produto = buscarProdutoPorId(id);
+        produtoRepository.delete(produto);
+    }
+
+    public void AtualizaProduto(Long id, Produto produtoEnviado) {
+        Produto produto = buscarProdutoPorId(id);
+        Categoria categoria = categoriaRepository.findById(produtoEnviado.getCategoria().getId())
+                        .orElseThrow(() -> new BusinessException("Categoria não localizada."));
+        produto.setId(id);
+        produto.setCategoria(categoria);
+        produto.setSku(produtoEnviado.getSku());
+        produto.setDescricao(produtoEnviado.getDescricao());
+        produto.setUnidadeMedida(produtoEnviado.getUnidadeMedida());
+        produto.setLotes(produtoEnviado.getLotes());
+        produtoRepository.save(produto);
     }
 }

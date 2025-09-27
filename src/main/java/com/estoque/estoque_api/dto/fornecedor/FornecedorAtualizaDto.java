@@ -5,11 +5,10 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Data
-public class FornecedorDto {
-
+public class FornecedorAtualizaDto {
+    private Long id;
     @NotBlank(message = "Razão social é obrigatório")
     private String razaoSocial;
     private String nomeFantasia;
@@ -18,7 +17,7 @@ public class FornecedorDto {
     private LocalDate dataCadastral;
     private String email;
     private String telefone;
-    private EnderecoDto endereco;
     @NotBlank(message = "CNPJ é obrigatório")
     private String cnpj;
+    private EnderecoDto endereco;
 }

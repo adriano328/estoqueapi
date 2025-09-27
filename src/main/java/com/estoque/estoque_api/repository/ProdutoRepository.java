@@ -8,5 +8,7 @@ import org.springframework.stereotype.Repository;
 public interface ProdutoRepository extends JpaRepository<Produto, Long> {
     boolean existsByCategoriaId(Long categoriaId);
     boolean existsByLotes_Deposito_Id(Long depositoId);
+    boolean existsByLotes_Id(Long loteId);
+    boolean existsByFornecedor_Id(Long fornecedorId);
 
 }
