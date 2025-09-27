@@ -16,4 +16,8 @@ public class Deposito {
 
     @Column(name = "nome")
     private String nome;
+
+    @Column(name = "codigo", nullable = false, unique = true)
+    private String codigo;
+
 }
