@@ -40,7 +40,7 @@ public class LoteController {
     }
 
     @Operation(summary = "Exclui lote", description = "Exclui lote")
-    @GetMapping("/excluir")
+    @DeleteMapping("/excluir")
     public void DeletaLote(@RequestParam Long id) {
         loteService.deletaLote(id);
     }

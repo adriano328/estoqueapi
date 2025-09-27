@@ -38,11 +38,13 @@ public class FornecedorController {
     }
 
     @Operation(summary = "Exclui fornecedor.", description = "Exclui fornecedor.")
+    @DeleteMapping("/excluir")
     public void ExcluiFornecedor(@RequestParam Long id) {
         fornecedorService.ExcluiFornecedor(id);
     }
 
     @Operation(summary = "Atualiza fornecedor.", description = "Atuaiza fornecedor de produto.")
+    @PutMapping()
     ResponseEntity<FornecedorAtualizaDto> AtualizarFornecedor(@Valid @RequestBody FornecedorAtualizaDto fornecedorAtualizaDto) {
         Fornecedor fornecedor = modelMapper.map(fornecedorAtualizaDto, Fornecedor.class);
         fornecedorService.atualizaFornecedor(fornecedorAtualizaDto.getId(), fornecedor);
