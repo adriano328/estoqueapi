@@ -41,15 +41,8 @@ public class ProdutoService {
     }
 
     public void AtualizaProduto(Long id, Produto produtoEnviado) {
-        Produto produto = buscarProdutoPorId(id);
         Categoria categoria = categoriaRepository.findById(produtoEnviado.getCategoria().getId())
                         .orElseThrow(() -> new BusinessException("Categoria não localizada."));
-        produto.setId(id);
-        produto.setCategoria(categoria);
-        produto.setSku(produtoEnviado.getSku());
-        produto.setDescricao(produtoEnviado.getDescricao());
-        produto.setUnidadeMedida(produtoEnviado.getUnidadeMedida());
-        produto.setLotes(produtoEnviado.getLotes());
-        produtoRepository.save(produto);
+        produtoRepository.save(produtoEnviado);
     }
 }

@@ -35,17 +35,11 @@ public class LoteService {
     }
 
     public void AtualizarLote(Long id, Lote loteEnviado) {
-        Lote lote = BuscarPorLote(id);
         Deposito deposito = depositoRepository.findById(loteEnviado.getDeposito().getId())
                 .orElseThrow(() -> new BusinessException("Deposito não localizado."));
         Produto produto = produtoRepository.findById(loteEnviado.getProduto().getId())
                 .orElseThrow(() -> new BusinessException("Produto não localizado."));
 
-        lote.setId(id); lote.setNomeLote(loteEnviado.getNomeLote());
-        lote.setDeposito(deposito); lote.setProduto(produto);
-        lote.setQuantidade(loteEnviado.getQuantidade()); lote.setDeposito(loteEnviado.getDeposito());
-        lote.setCustoUnitario(loteEnviado.getCustoUnitario()); lote.setDataFabricacao(loteEnviado.getDataFabricacao());
-        lote.setDataVencimento(loteEnviado.getDataVencimento());
-        loteRepository.save(lote);
+        loteRepository.save(loteEnviado);
     }
 }

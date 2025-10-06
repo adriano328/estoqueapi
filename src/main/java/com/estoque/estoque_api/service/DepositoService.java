@@ -34,9 +34,7 @@ public class DepositoService {
     }
 
     public void atualizarDeposito(Long id, Deposito depositoEnviado) {
-        Deposito deposito = buscarDepositoPorId(id);
-        deposito.setNome(depositoEnviado.getNome());
-        depositoRepository.save(deposito);
+        depositoRepository.save(depositoEnviado);
     }
 
 }

@@ -45,19 +45,7 @@ public class FornecedorService {
     }
 
     public Fornecedor atualizaFornecedor(Long id, Fornecedor fornecedorEnviado) {
-        Endereco endereco = modelMapper.map(fornecedorEnviado, Endereco.class);
-        Fornecedor fornecedor = buscarFornecedorPorId(id);
-
-        fornecedor.setId(id);
-        fornecedor.setCnpj(fornecedorEnviado.getCnpj());
-        fornecedor.setEmail(fornecedorEnviado.getEmail());
-        fornecedor.setEndereco(endereco);
-        fornecedor.setTelefone(fornecedorEnviado.getTelefone());
-        fornecedor.setSituacao(fornecedorEnviado.getSituacao());
-        fornecedor.setDataCadastral(fornecedorEnviado.getDataCadastral());
-        fornecedor.setNomeFantasia(fornecedorEnviado.getNomeFantasia());
-        fornecedor.setRazaoSocial(fornecedorEnviado.getRazaoSocial());
-        return fornecedorRepository.save(fornecedor);
+        return fornecedorRepository.save(fornecedorEnviado);
     }
 
 }

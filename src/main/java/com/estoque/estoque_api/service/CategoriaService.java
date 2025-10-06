@@ -35,8 +35,6 @@ public class CategoriaService {
     }
 
     public void AtualizaCategoria (Long id, Categoria categoriaEnviada) {
-        Categoria categoria = buscarPorId(id);
-        categoria.setNome(categoriaEnviada.getNome());
-        categoriaRepository.save(categoria);
+        categoriaRepository.save(categoriaEnviada);
     }
 }
